@@ -1,0 +1,825 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A17C453235C439E0094D6A3 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A17C452235C439E0094D6A3 /* ScheduleViewController.swift */; };
+		5A17C455235C43C20094D6A3 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A17C454235C43C20094D6A3 /* Cells.swift */; };
+		5A21DB2E235C44490055EA66 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21DB2D235C44490055EA66 /* Event.swift */; };
+		5A21DB33235C44930055EA66 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21DB32235C44930055EA66 /* Extensions.swift */; };
+		5A21DB35235C45040055EA66 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21DB34235C45040055EA66 /* DataManager.swift */; };
+		5A21DB38235C49BE0055EA66 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21DB37235C49BE0055EA66 /* Views.swift */; };
+		5A21DB3A235C4A0B0055EA66 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21DB39235C4A0B0055EA66 /* FeedViewController.swift */; };
+		5A21DB3C235C4E510055EA66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21DB3B235C4E510055EA66 /* MenuViewController.swift */; };
+		5A2AE5DE239F209200CCC822 /* HuntMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AE5DD239F209200CCC822 /* HuntMainViewController.swift */; };
+		5A6E865A23617BDE00A33061 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E865923617BDE00A33061 /* BeaconManager.swift */; };
+		5A6E865C23617D6600A33061 /* BeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E865B23617D6600A33061 /* BeaconViewController.swift */; };
+		5AAF3C1E235C40D10023A695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF3C1D235C40D10023A695 /* AppDelegate.swift */; };
+		5AAF3C20235C40D10023A695 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF3C1F235C40D10023A695 /* SceneDelegate.swift */; };
+		5AAF3C25235C40D10023A695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF3C23235C40D10023A695 /* Main.storyboard */; };
+		5AAF3C27235C40D20023A695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF3C26235C40D20023A695 /* Assets.xcassets */; };
+		5AAF3C2A235C40D20023A695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF3C28235C40D20023A695 /* LaunchScreen.storyboard */; };
+		5AAF3C35235C40D20023A695 /* ConvenioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF3C34235C40D20023A695 /* ConvenioTests.swift */; };
+		5AAF3C40235C40D20023A695 /* ConvenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF3C3F235C40D20023A695 /* ConvenioUITests.swift */; };
+		5AC0B03F2393884A008466CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0B03E2393884A008466CF /* LoginViewController.swift */; };
+		5AC0B04123939B6F008466CF /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0B04023939B6F008466CF /* UserManager.swift */; };
+		5AC0B04323939BAC008466CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0B04223939BAC008466CF /* User.swift */; };
+		5AC0B0452393A56F008466CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0B0442393A56F008466CF /* MapViewController.swift */; };
+		5AC0B04823944DD7008466CF /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0B04723944DD7008466CF /* MapManager.swift */; };
+		72EAFFE4499A25C666A9D5A4 /* Pods_Convenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2F909B1897CD13C094BAD0 /* Pods_Convenio.framework */; };
+		B5096DB8B8FDD3FCA9B290E7 /* Pods_ConvenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE00DE2C6A1FEC84A97302E /* Pods_ConvenioUITests.framework */; };
+		B9BDDAE2E9D438DBB772EF1F /* Pods_ConvenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFCEA6A6FE50E083C563B62 /* Pods_ConvenioTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AAF3C31235C40D20023A695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AAF3C12235C40D10023A695 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AAF3C19235C40D10023A695;
+			remoteInfo = Convenio;
+		};
+		5AAF3C3C235C40D20023A695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AAF3C12235C40D10023A695 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AAF3C19235C40D10023A695;
+			remoteInfo = Convenio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C598E68F2F3317FE267602A /* Pods-ConvenioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenioTests.release.xcconfig"; path = "Target Support Files/Pods-ConvenioTests/Pods-ConvenioTests.release.xcconfig"; sourceTree = "<group>"; };
+		1AFCEA6A6FE50E083C563B62 /* Pods_ConvenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29E9C0A26758E10C6EEF4FA1 /* Pods-Convenio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenio.release.xcconfig"; path = "Target Support Files/Pods-Convenio/Pods-Convenio.release.xcconfig"; sourceTree = "<group>"; };
+		5A17C452235C439E0094D6A3 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		5A17C454235C43C20094D6A3 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		5A21DB2D235C44490055EA66 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		5A21DB32235C44930055EA66 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5A21DB34235C45040055EA66 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5A21DB37235C49BE0055EA66 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		5A21DB39235C4A0B0055EA66 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		5A21DB3B235C4E510055EA66 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		5A2AE5DD239F209200CCC822 /* HuntMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuntMainViewController.swift; sourceTree = "<group>"; };
+		5A6E865923617BDE00A33061 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		5A6E865B23617D6600A33061 /* BeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewController.swift; sourceTree = "<group>"; };
+		5AAF3C1A235C40D10023A695 /* Convenio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convenio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AAF3C1D235C40D10023A695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5AAF3C1F235C40D10023A695 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5AAF3C24235C40D10023A695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5AAF3C26235C40D20023A695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AAF3C29235C40D20023A695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5AAF3C2B235C40D20023A695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AAF3C30235C40D20023A695 /* ConvenioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvenioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AAF3C34235C40D20023A695 /* ConvenioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenioTests.swift; sourceTree = "<group>"; };
+		5AAF3C36235C40D20023A695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AAF3C3B235C40D20023A695 /* ConvenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AAF3C3F235C40D20023A695 /* ConvenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenioUITests.swift; sourceTree = "<group>"; };
+		5AAF3C41235C40D20023A695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AC0B03E2393884A008466CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5AC0B04023939B6F008466CF /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		5AC0B04223939BAC008466CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5AC0B0442393A56F008466CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5AC0B0462393A805008466CF /* Uni.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Uni.gpx; sourceTree = "<group>"; };
+		5AC0B04723944DD7008466CF /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		8EF873351858DCD6257B29E9 /* Pods-ConvenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-ConvenioUITests/Pods-ConvenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9AF6955069C4106650AB579E /* Pods-ConvenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenioTests.debug.xcconfig"; path = "Target Support Files/Pods-ConvenioTests/Pods-ConvenioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A92D383BC5AFE341841A1AF2 /* Pods-Convenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenio.debug.xcconfig"; path = "Target Support Files/Pods-Convenio/Pods-Convenio.debug.xcconfig"; sourceTree = "<group>"; };
+		ADE00DE2C6A1FEC84A97302E /* Pods_ConvenioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConvenioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2F909B1897CD13C094BAD0 /* Pods_Convenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6003CE625F7D5D8B04516B7 /* Pods-ConvenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConvenioUITests.release.xcconfig"; path = "Target Support Files/Pods-ConvenioUITests/Pods-ConvenioUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AAF3C17235C40D10023A695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72EAFFE4499A25C666A9D5A4 /* Pods_Convenio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AAF3C2D235C40D20023A695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9BDDAE2E9D438DBB772EF1F /* Pods_ConvenioTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AAF3C38235C40D20023A695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5096DB8B8FDD3FCA9B290E7 /* Pods_ConvenioUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38BD34C3B09ADC2290CF8479 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F909B1897CD13C094BAD0 /* Pods_Convenio.framework */,
+				1AFCEA6A6FE50E083C563B62 /* Pods_ConvenioTests.framework */,
+				ADE00DE2C6A1FEC84A97302E /* Pods_ConvenioUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A21DB2F235C445A0055EA66 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				5A21DB2D235C44490055EA66 /* Event.swift */,
+				5AC0B04223939BAC008466CF /* User.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		5A21DB30235C44610055EA66 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A21DB3B235C4E510055EA66 /* MenuViewController.swift */,
+				5AC0B03E2393884A008466CF /* LoginViewController.swift */,
+				5A21DB39235C4A0B0055EA66 /* FeedViewController.swift */,
+				5AC0B0442393A56F008466CF /* MapViewController.swift */,
+				5A17C452235C439E0094D6A3 /* ScheduleViewController.swift */,
+				5A6E865B23617D6600A33061 /* BeaconViewController.swift */,
+				5A2AE5DD239F209200CCC822 /* HuntMainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5A21DB31235C44690055EA66 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AC0B0462393A805008466CF /* Uni.gpx */,
+				5A21DB32235C44930055EA66 /* Extensions.swift */,
+				5A17C454235C43C20094D6A3 /* Cells.swift */,
+				5A21DB37235C49BE0055EA66 /* Views.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A21DB36235C45090055EA66 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5A21DB34235C45040055EA66 /* DataManager.swift */,
+				5AC0B04023939B6F008466CF /* UserManager.swift */,
+				5A6E865923617BDE00A33061 /* BeaconManager.swift */,
+				5AC0B04723944DD7008466CF /* MapManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5AAF3C11235C40D10023A695 = {
+			isa = PBXGroup;
+			children = (
+				5AAF3C1C235C40D10023A695 /* Convenio */,
+				5AAF3C33235C40D20023A695 /* ConvenioTests */,
+				5AAF3C3E235C40D20023A695 /* ConvenioUITests */,
+				5AAF3C1B235C40D10023A695 /* Products */,
+				EEF6A5997BF9C78CED29E10E /* Pods */,
+				38BD34C3B09ADC2290CF8479 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5AAF3C1B235C40D10023A695 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AAF3C1A235C40D10023A695 /* Convenio.app */,
+				5AAF3C30235C40D20023A695 /* ConvenioTests.xctest */,
+				5AAF3C3B235C40D20023A695 /* ConvenioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AAF3C1C235C40D10023A695 /* Convenio */ = {
+			isa = PBXGroup;
+			children = (
+				5AAF3C1D235C40D10023A695 /* AppDelegate.swift */,
+				5AAF3C1F235C40D10023A695 /* SceneDelegate.swift */,
+				5A21DB36235C45090055EA66 /* Managers */,
+				5A21DB30235C44610055EA66 /* View Controllers */,
+				5A21DB2F235C445A0055EA66 /* Objects */,
+				5A21DB31235C44690055EA66 /* Supporting Files */,
+				5AAF3C23235C40D10023A695 /* Main.storyboard */,
+				5AAF3C26235C40D20023A695 /* Assets.xcassets */,
+				5AAF3C28235C40D20023A695 /* LaunchScreen.storyboard */,
+				5AAF3C2B235C40D20023A695 /* Info.plist */,
+			);
+			path = Convenio;
+			sourceTree = "<group>";
+		};
+		5AAF3C33235C40D20023A695 /* ConvenioTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AAF3C34235C40D20023A695 /* ConvenioTests.swift */,
+				5AAF3C36235C40D20023A695 /* Info.plist */,
+			);
+			path = ConvenioTests;
+			sourceTree = "<group>";
+		};
+		5AAF3C3E235C40D20023A695 /* ConvenioUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5AAF3C3F235C40D20023A695 /* ConvenioUITests.swift */,
+				5AAF3C41235C40D20023A695 /* Info.plist */,
+			);
+			path = ConvenioUITests;
+			sourceTree = "<group>";
+		};
+		EEF6A5997BF9C78CED29E10E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A92D383BC5AFE341841A1AF2 /* Pods-Convenio.debug.xcconfig */,
+				29E9C0A26758E10C6EEF4FA1 /* Pods-Convenio.release.xcconfig */,
+				9AF6955069C4106650AB579E /* Pods-ConvenioTests.debug.xcconfig */,
+				0C598E68F2F3317FE267602A /* Pods-ConvenioTests.release.xcconfig */,
+				8EF873351858DCD6257B29E9 /* Pods-ConvenioUITests.debug.xcconfig */,
+				E6003CE625F7D5D8B04516B7 /* Pods-ConvenioUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AAF3C19235C40D10023A695 /* Convenio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AAF3C44235C40D20023A695 /* Build configuration list for PBXNativeTarget "Convenio" */;
+			buildPhases = (
+				6662A7081F7F5BB03CCFF6F5 /* [CP] Check Pods Manifest.lock */,
+				5AAF3C16235C40D10023A695 /* Sources */,
+				5AAF3C17235C40D10023A695 /* Frameworks */,
+				5AAF3C18235C40D10023A695 /* Resources */,
+				47FF12A99AFBE7847C73573C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Convenio;
+			productName = Convenio;
+			productReference = 5AAF3C1A235C40D10023A695 /* Convenio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AAF3C2F235C40D20023A695 /* ConvenioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AAF3C47235C40D20023A695 /* Build configuration list for PBXNativeTarget "ConvenioTests" */;
+			buildPhases = (
+				9513EC4AFDD03BC7693E46CD /* [CP] Check Pods Manifest.lock */,
+				5AAF3C2C235C40D20023A695 /* Sources */,
+				5AAF3C2D235C40D20023A695 /* Frameworks */,
+				5AAF3C2E235C40D20023A695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AAF3C32235C40D20023A695 /* PBXTargetDependency */,
+			);
+			name = ConvenioTests;
+			productName = ConvenioTests;
+			productReference = 5AAF3C30235C40D20023A695 /* ConvenioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5AAF3C3A235C40D20023A695 /* ConvenioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AAF3C4A235C40D20023A695 /* Build configuration list for PBXNativeTarget "ConvenioUITests" */;
+			buildPhases = (
+				4EAC87143D0C971FA961522F /* [CP] Check Pods Manifest.lock */,
+				5AAF3C37235C40D20023A695 /* Sources */,
+				5AAF3C38235C40D20023A695 /* Frameworks */,
+				5AAF3C39235C40D20023A695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AAF3C3D235C40D20023A695 /* PBXTargetDependency */,
+			);
+			name = ConvenioUITests;
+			productName = ConvenioUITests;
+			productReference = 5AAF3C3B235C40D20023A695 /* ConvenioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AAF3C12235C40D10023A695 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Anshay Saboo";
+				TargetAttributes = {
+					5AAF3C19235C40D10023A695 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					5AAF3C2F235C40D20023A695 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 5AAF3C19235C40D10023A695;
+					};
+					5AAF3C3A235C40D20023A695 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 5AAF3C19235C40D10023A695;
+					};
+				};
+			};
+			buildConfigurationList = 5AAF3C15235C40D10023A695 /* Build configuration list for PBXProject "Convenio" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5AAF3C11235C40D10023A695;
+			productRefGroup = 5AAF3C1B235C40D10023A695 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AAF3C19235C40D10023A695 /* Convenio */,
+				5AAF3C2F235C40D20023A695 /* ConvenioTests */,
+				5AAF3C3A235C40D20023A695 /* ConvenioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AAF3C18235C40D10023A695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AAF3C2A235C40D20023A695 /* LaunchScreen.storyboard in Resources */,
+				5AAF3C27235C40D20023A695 /* Assets.xcassets in Resources */,
+				5AAF3C25235C40D10023A695 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AAF3C2E235C40D20023A695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AAF3C39235C40D20023A695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47FF12A99AFBE7847C73573C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Convenio/Pods-Convenio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Convenio/Pods-Convenio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Convenio/Pods-Convenio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EAC87143D0C971FA961522F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConvenioUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6662A7081F7F5BB03CCFF6F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Convenio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9513EC4AFDD03BC7693E46CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConvenioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AAF3C16235C40D10023A695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AAF3C1E235C40D10023A695 /* AppDelegate.swift in Sources */,
+				5AC0B04823944DD7008466CF /* MapManager.swift in Sources */,
+				5A21DB3C235C4E510055EA66 /* MenuViewController.swift in Sources */,
+				5AC0B04123939B6F008466CF /* UserManager.swift in Sources */,
+				5A21DB3A235C4A0B0055EA66 /* FeedViewController.swift in Sources */,
+				5A21DB33235C44930055EA66 /* Extensions.swift in Sources */,
+				5A6E865C23617D6600A33061 /* BeaconViewController.swift in Sources */,
+				5AAF3C20235C40D10023A695 /* SceneDelegate.swift in Sources */,
+				5A21DB35235C45040055EA66 /* DataManager.swift in Sources */,
+				5AC0B04323939BAC008466CF /* User.swift in Sources */,
+				5A17C453235C439E0094D6A3 /* ScheduleViewController.swift in Sources */,
+				5A21DB2E235C44490055EA66 /* Event.swift in Sources */,
+				5A2AE5DE239F209200CCC822 /* HuntMainViewController.swift in Sources */,
+				5A21DB38235C49BE0055EA66 /* Views.swift in Sources */,
+				5A6E865A23617BDE00A33061 /* BeaconManager.swift in Sources */,
+				5AC0B03F2393884A008466CF /* LoginViewController.swift in Sources */,
+				5A17C455235C43C20094D6A3 /* Cells.swift in Sources */,
+				5AC0B0452393A56F008466CF /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AAF3C2C235C40D20023A695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AAF3C35235C40D20023A695 /* ConvenioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AAF3C37235C40D20023A695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AAF3C40235C40D20023A695 /* ConvenioUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AAF3C32235C40D20023A695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AAF3C19235C40D10023A695 /* Convenio */;
+			targetProxy = 5AAF3C31235C40D20023A695 /* PBXContainerItemProxy */;
+		};
+		5AAF3C3D235C40D20023A695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AAF3C19235C40D10023A695 /* Convenio */;
+			targetProxy = 5AAF3C3C235C40D20023A695 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AAF3C23235C40D10023A695 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AAF3C24235C40D10023A695 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5AAF3C28235C40D20023A695 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AAF3C29235C40D20023A695 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AAF3C42235C40D20023A695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5AAF3C43235C40D20023A695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AAF3C45235C40D20023A695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92D383BC5AFE341841A1AF2 /* Pods-Convenio.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J6QXMLSWL;
+				INFOPLIST_FILE = Convenio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anshaysaboo.Convenio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AAF3C46235C40D20023A695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29E9C0A26758E10C6EEF4FA1 /* Pods-Convenio.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J6QXMLSWL;
+				INFOPLIST_FILE = Convenio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anshaysaboo.Convenio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5AAF3C48235C40D20023A695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF6955069C4106650AB579E /* Pods-ConvenioTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J6QXMLSWL;
+				INFOPLIST_FILE = ConvenioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anshaysaboo.ConvenioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Convenio.app/Convenio";
+			};
+			name = Debug;
+		};
+		5AAF3C49235C40D20023A695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C598E68F2F3317FE267602A /* Pods-ConvenioTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J6QXMLSWL;
+				INFOPLIST_FILE = ConvenioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anshaysaboo.ConvenioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Convenio.app/Convenio";
+			};
+			name = Release;
+		};
+		5AAF3C4B235C40D20023A695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EF873351858DCD6257B29E9 /* Pods-ConvenioUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J6QXMLSWL;
+				INFOPLIST_FILE = ConvenioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anshaysaboo.ConvenioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Convenio;
+			};
+			name = Debug;
+		};
+		5AAF3C4C235C40D20023A695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6003CE625F7D5D8B04516B7 /* Pods-ConvenioUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J6QXMLSWL;
+				INFOPLIST_FILE = ConvenioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.anshaysaboo.ConvenioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Convenio;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AAF3C15235C40D10023A695 /* Build configuration list for PBXProject "Convenio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AAF3C42235C40D20023A695 /* Debug */,
+				5AAF3C43235C40D20023A695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AAF3C44235C40D20023A695 /* Build configuration list for PBXNativeTarget "Convenio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AAF3C45235C40D20023A695 /* Debug */,
+				5AAF3C46235C40D20023A695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AAF3C47235C40D20023A695 /* Build configuration list for PBXNativeTarget "ConvenioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AAF3C48235C40D20023A695 /* Debug */,
+				5AAF3C49235C40D20023A695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AAF3C4A235C40D20023A695 /* Build configuration list for PBXNativeTarget "ConvenioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AAF3C4B235C40D20023A695 /* Debug */,
+				5AAF3C4C235C40D20023A695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AAF3C12235C40D10023A695 /* Project object */;
+}
