@@ -41,12 +41,20 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LongEventCell", for: indexPath) as! FeedLongEventCell
-        let e = Event()
-        e.title = "Scavenger Hunt"
-        e.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-        cell.setup(event: e)
-        return cell
+        var id = ""
+        switch indexPath.row {
+        case 0:
+            id = "EventCell"
+        case 1:
+            id = "InfoCell"
+        case 2:
+            id = "LongEventCell"
+        case 3:
+            id = "EventCell"
+        default:
+            id = "EventCell"
+        }
+        return tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
     }
 }
 

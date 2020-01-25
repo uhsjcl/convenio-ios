@@ -21,6 +21,14 @@ class Event {
     
     init() {}
     
+    init(title: String, startTime: Date, endTime: Date, room: String, type: String) {
+        self.title = title
+        self.startTime = startTime
+        self.endTime = endTime
+        self.room = room
+        self.type = type
+    }
+    
     init(json: JSON) {
         self.title = String(describing: json["title"].string)
         self.description = String(describing: json["description"].string)
@@ -40,12 +48,22 @@ class Event {
         self.endTime = Date(timeIntervalSince1970: dataDict["endTime"] as! TimeInterval)
     }
     
+    // Returns the times as formatted strings
     func getTimesFormatted() -> (String, String) {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         let startString = formatter.string(from: startTime)
         let endString = formatter.string(from: endTime)
         return (startString, endString)
+    }
+    
+    // Returns the location formatted
+    func getLocationFormatted() -> String {
+        if self.room == "Theater" || self.room == "Library" {
+            return "In the " + self.room
+        } else {
+            return "In Room " + self.room
+        }
     }
     
     func storable() -> Data {

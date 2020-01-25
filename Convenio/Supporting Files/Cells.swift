@@ -16,21 +16,17 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var titleHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleWidthConstraint: NSLayoutConstraint!
     
     func setup(event: Event, row: Int) {
         
         // fill out the cell information
         self.titleLabel.text = event.title
-        titleHeightConstraint.constant = self.titleLabel.heightForView(width: titleWidthConstraint.constant)
         let room = event.room
         let (startTime, endTime) = event.getTimesFormatted()
         subtitleLabel.attributedText = formatSubtitle(time: "\(startTime) - \(endTime)", room: room)
         typeLabel.text = event.type.uppercased()
         self.clipsToBounds = false
         self.contentView.clipsToBounds = false
-        
         self.layer.zPosition = CGFloat(500 - row)
     }
     
@@ -70,7 +66,6 @@ class FeedEventCell: UITableViewCell {
     
     func setup(event: Event) {
         titleLabel.text = event.title
-        titleHeightConstraint.constant = titleLabel.heightForView()
     }
     
     
@@ -91,8 +86,6 @@ class FeedLongEventCell: UITableViewCell {
     func setup(event: Event) {
         titleLabel.text = event.title
         detailsLabel.text = event.description
-        titleHeightConstraint.constant = titleLabel.heightForView()
-        detailsHeightConstraint.constant = detailsLabel.heightForView() + 30
     }
 }
 

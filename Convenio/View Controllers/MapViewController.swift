@@ -13,32 +13,55 @@ import SideMenuSwift
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MGLMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var mapBoundary: MGLCoordinateBounds!
     
+    var eventsToDisplay: [Event] = []
+    var locations: [Location] = []
+    
+    var selectedEvent: Event!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // begin setting up the view
         setupMapView()
+        
+        // display the indicator
+        activityIndicator.startAnimating()
     }
     
     override func viewDidLayoutSubviews() {
         mapView.roundTopTwoCorners()
     }
     
-    @IBAction func menuButtonClicked(_ sender: Any) {
-        sideMenuController?.revealMenu()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowEventDetails" {
+            let dest: EventDetailsViewController = segue.destination as! EventDetailsViewController
+            dest.eventToShow = selectedEvent
+        }
+    }
+    
+    // Fetch the geo dataset with coordinates of all points
+    func setupAnnotations() {
+        setupEvents()
+        MapManager.getAllUniGeoPoints { (locations, success) in
+            // hide activity indicator
+            self.activityIndicator.isHidden = true
+            // display annotations
+            self.locations = locations
+            self.addEventAnnotations()
+        }
     }
     
     func setupMapView() {
-        // set style
-        mapView.styleURL = URL(string: "mapbox://styles/anshaysaboo/ck3pe1pwq0oiv1cqedywbygl3")
-        
         // delegate
         mapView.delegate = self
         
         // zoom in on University High School
         let uniCoords = CLLocationCoordinate2D(latitude: 33.651785, longitude: -117.822857)
-        mapView.setCenter(uniCoords, zoomLevel: 16, animated: false)
+        mapView.setCenter(uniCoords, zoomLevel: 17, animated: false)
         
         // set boundaries
         let northeast = CLLocationCoordinate2D(latitude: 33.657009, longitude: -117.816946)
@@ -49,73 +72,68 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = true
         mapView.showsHeading = true
         
-        // tap gesture recognizer
-        let recog = UITapGestureRecognizer(target: self, action: #selector(mapViewWasSelected(_:)))
-        mapView.addGestureRecognizer(recog)
+    }
+    
+    // Populate the event array with demo events
+    func setupEvents() {
+        setupMapView()
+        let startDate = "4:30 PM".toDate(withFormat: "h:mm a")
+        let endDate = "5:30 PM".toDate(withFormat: "h:mm a")
+        let event = Event(title: "Cookie Decorating", startTime: startDate, endTime: endDate, room: "509B", type: "ACTIVITY")
+        eventsToDisplay.append(event)
         
-        // add the locker block annotations to the view
-        let lockerNames = MapManager().buildingNames
-        let lockerCoordinates = MapManager().buildingCoordinates
-        for i in 0...lockerNames.count-1 {
-            let annotation = MGLPointAnnotation()
-            annotation.coordinate = lockerCoordinates[i]
-            annotation.title = lockerNames[i]
-            //mapView.addAnnotation(annotation)
+        let event2 = Event(title: "Open Certamen", startTime: startDate, endTime: endDate, room: "210", type: "ACADEMIC")
+        eventsToDisplay.append(event2)
+        
+        let event3 = Event(title: "That's Entertainment!", startTime: startDate, endTime: endDate, room: "Theater", type: "ACTIVITY")
+        eventsToDisplay.append(event3)
+        
+        let event4 = Event(title: "Latin Oratory", startTime: startDate, endTime: endDate, room: "316", type: "ACADEMIC")
+        eventsToDisplay.append(event4)
+    }
+    
+    func addEventAnnotations() {
+        // loop through the events and add each one to the view
+        for ev: Event in eventsToDisplay {
+            // create an annotation for each
+            let anno = MGLPointAnnotation()
+            // get the coordinates of the location specified
+            anno.coordinate = MapManager.getCoordinatesOfRoom(room: ev.room, locations: locations)
+            anno.title = ev.title
+            anno.subtitle = ev.getLocationFormatted()
+            mapView.addAnnotation(anno)
         }
+    }
+    
+    @IBAction func menuButtonClicked(_ sender: Any) {
+        sideMenuController?.revealMenu()
     }
 }
     
 // MARK:- MapView Delegate
 extension MapViewController: MGLMapViewDelegate {
     
-    /*
-     // This example uses Colorado’s boundaries to restrict the camera movement.
-    func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
-         
-        // Get the current camera to restore it after.
-        let currentCamera = mapView.camera
-        // From the new camera obtain the center to test if it’s inside the boundaries.
-        let newCameraCenter = newCamera.centerCoordinate
-        // Set the map’s visible bounds to newCamera.
-        mapView.camera = newCamera
-        let newVisibleCoordinates = mapView.visibleCoordinateBounds
-        // Revert the camera.
-        mapView.camera = currentCamera
-        // Test if the newCameraCenter and newVisibleCoordinates are inside self.colorado.
-        let inside = MGLCoordinateInCoordinateBounds(newCameraCenter, self.mapBoundary)
-        let intersects = MGLCoordinateInCoordinateBounds(newVisibleCoordinates.ne, self.self.mapBoundary) && MGLCoordinateInCoordinateBounds(newVisibleCoordinates.sw, self.self.mapBoundary)
-         
-        return inside && intersects
-    }*/
-    
-    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        let reuseIdentifier = annotation.title!
-        let annotationView = LabelAnnotationView(reuseIdentifier: reuseIdentifier)
-        annotationView.title = annotation.title!!
-        return nil
+    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+        let annoImage = UIImage(cgImage: (UIImage(named: "MapAnnotation")?.cgImage)!, scale: 6, orientation: .up)
+        return MGLAnnotationImage(image: annoImage, reuseIdentifier: "image")
     }
     
-    @objc func mapViewWasSelected(_ sender: UIGestureRecognizer!) {
-        let tapPoint: CGPoint = sender.location(in: mapView)
-        let tapCoordinate: CLLocationCoordinate2D = mapView.convert(tapPoint, toCoordinateFrom: nil)
-        print(tapCoordinate)
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        setupAnnotations()
+    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
+    
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        // transfer to the details screen
+        mapView.deselectAnnotation(annotation, animated: true)
+        // get the event that was selected
+        selectedEvent = eventsToDisplay.first(where: { (ev) -> Bool in
+            return ev.title == annotation.title
+        })
+        performSegue(withIdentifier: "ShowEventDetails", sender: self)
     }
 
-}
-
-class LabelAnnotationView: MGLAnnotationView {
-    
-    private var titleLabel: UILabel!
-    public var title = ""
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setup()
-    }
-    
-    func setup() {
-        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        titleLabel.text = title
-        self.addSubview(titleLabel)
-    }
 }

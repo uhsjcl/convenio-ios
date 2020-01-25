@@ -8,33 +8,47 @@
 
 import Foundation
 import CoreLocation
+import SwiftyJSON
+import Alamofire
 
 // handles all map-related functions, storing the coordinates of rooms and buildings
 class MapManager {
-    var bathroomCoordinates: [CLLocationCoordinate2D] = [
-        CLLocationCoordinate2D(latitude: 33.65335682502625, longitude: -117.82213816799168),
-        CLLocationCoordinate2D(latitude: 33.65217237822861, longitude: -117.82293617748056),
-        CLLocationCoordinate2D(latitude: 33.65240406313285, longitude: -117.82149561304396)
-    ]
     
-    var buildingNames: [String] = [
-        "200",
-        "300",
-        "400",
-        "500",
-        "700",
-        "900/1000"/*,
-        "Theater",
-        "Office",
-        "Small Gym",
-        "Main Gym"*/
-    ]
-    var buildingCoordinates: [CLLocationCoordinate2D] = [
-        CLLocationCoordinate2D(latitude: 33.651326, longitude: -117.822672),
-        CLLocationCoordinate2D(latitude: 33.651581, longitude: -117.821850),
-        CLLocationCoordinate2D(latitude: 33.652214, longitude: -117.821564),
-        CLLocationCoordinate2D(latitude: 33.652371, longitude: -117.822585),
-        CLLocationCoordinate2D(latitude: 33.651693, longitude: -117.822855),
-        CLLocationCoordinate2D(latitude: 33.652822, longitude: -117.821818)
-    ]
+    /// Returns a JSON array of all GeoPoints marked on the map
+    static func getAllUniGeoPoints(completion: @escaping ([Location], Bool) -> Void) {
+        let url = "https://api.mapbox.com/datasets/v1/anshaysaboo/ck3ouwha11sfq2io1zbbw2859/features?limit=100&access_token=pk.eyJ1IjoiYW5zaGF5c2Fib28iLCJhIjoiY2lyY2I5OXFpMDE4MWdkbmtqMzBueTdmayJ9.IhsuK6OY1qmXPj4PkJI-yw"
+        // TODO: Actually fetch all features
+        Alamofire.request(url, method: .get).responseJSON { response in
+            
+            // TODO: Handle error
+            
+            // convert response into JSON
+            let json = try! JSON(data: response.data!)
+            let featuresArray = json["features"].array!
+            var points: [Location] = []
+            // convert all geopoints into locations
+            for j: JSON in featuresArray {
+                let type = String(describing: j["geometry"]["type"].string!)
+                if type == "Point" {
+                    let loc = Location(json: j)
+                    points.append(loc)
+                }
+            }
+            completion(points, true)
+        }
+    }
+    
+    // Returns the Lat/Long of the given room code
+    static func getCoordinatesOfRoom(room: String, locations: [Location]) -> CLLocationCoordinate2D {
+        var pickedLocation: Location!
+        for loc: Location in locations {
+            if loc.roomCode == room {
+                pickedLocation = loc
+                break
+            }
+        }
+        return pickedLocation!.coordinates
+    }
+    
 }
+

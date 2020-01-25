@@ -89,4 +89,25 @@ extension Array where Element: Hashable {
     }
 }
 
+// Convert String to Date and Date to String
+extension String {
+    func toDate(withFormat format: String = "yyyy-MM-dd") -> Date {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = format
+      guard let date = dateFormatter.date(from: self) else {
+        preconditionFailure("Take a look to your format")
+      }
+      return date
+    }
+}
+
+extension Date {
+    func toString(withFormat format: String = "yyyy-MM-dd") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let string = dateFormatter.string(from: self)
+        return string
+    }
+}
+
 

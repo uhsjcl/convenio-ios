@@ -27,16 +27,8 @@ class ScheduleViewController: UIViewController {
     var saturdayCells: [ScheduleCell] = []
     var saturdayEvents: [Event] = []
     
-    var favoriteEvents: [Event] = []
-    var player: AVAudioPlayer!
-    var eventCells: [ScheduleCell] = []
-    var favoriteCells: [ScheduleCell] = []
-    var times: [String] = []
     var selectedEvent: Event!
-    var isShowingFavorites = false
     var rowsAnimated: [Int] = []
-    var activityIndicator: UIActivityIndicatorView!
-    var cheatCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,49 +46,38 @@ class ScheduleViewController: UIViewController {
         // Tab bar styling
         guard let tabBar = self.tabBarController?.tabBar else { return }
         tabBar.barTintColor = UIColor.white
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowEventDetails" {
+            let dest: EventDetailsViewController = segue.destination as! EventDetailsViewController
+            dest.eventToShow = selectedEvent
+        }
     }
     
     func setupUI() {
-        // show an activity indicator
-        //addActivityIndicator()
         // style the segmented control
         dayPicker.segments = LabelSegment.segments(withTitles: ["Friday","Saturday"], numberOfLines: 0, normalFont: UIFont(name: "AvenirNext-DemiBold", size: 16), normalTextColor: UIColor.white.withAlphaComponent(0.65), selectedBackgroundColor: .clear, selectedFont:UIFont(name: "AvenirNext-DemiBold", size: 16), selectedTextColor: UIColor.white)
-        //dayPicker.indicatorViewBorderColor = UIColor.white.withAlphaComponent(0.85)
-        //dayPicker.indicatorViewBorderWidth = 2.0
         dayPicker.indicatorViewBackgroundColor = UIColor.white.withAlphaComponent(0.4)
-    
-    }
-    
-    func addActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        activityIndicator.color = UIColor.darkGray
-        activityIndicator.center = CGPoint(x: self.tableBackground.bounds.size.width / 2, y: 50)
-        tableBackground.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
     }
     
     func setupEvents() {
         // Dummy event data
-        let event = Event()
-        event.title = "Open Certamen"
-        event.type = "ACADEMIC"
-        event.room = "Room 713"
-        event.startTime = Date()
-        event.endTime = Date().addingTimeInterval(3600)
-        for _ in 0...2 {
-            self.fridayEvents.append(event)
-        }
-        let event2 = Event()
-        event2.title = "Roman Poetry by Ovid, Martial, and Catullus"
-        event2.type = "WORKSHOP"
-        event2.room = "Room 511"
-        event2.startTime = Date().addingTimeInterval(7200)
-        event2.endTime = Date().addingTimeInterval(3600 * 3)
-        for _ in 0...1 {
-            self.fridayEvents.append(event2)
-            self.saturdayEvents.append(event2)
-        }
+        self.fridayEvents.append(Event(title: "Cookie Decorating", startTime: "5:30 PM".toDate(withFormat: "h:mm a"), endTime: "7:00 PM".toDate(withFormat: "h:mm a"), room: "504", type: "ACTIVITY"))
+        self.fridayEvents.append(Event(title: "Escape Room", startTime: "7:30 PM".toDate(withFormat: "h:mm a"), endTime: "10:00 PM".toDate(withFormat: "h:mm a"), room: "312", type: "ACTIVITY"))
+        self.fridayEvents.append(Event(title: "Chess Tournament", startTime: "5:30 PM".toDate(withFormat: "h:mm a"), endTime: "7:30 PM".toDate(withFormat: "h:mm a"), room: "504", type: "SPORTS"))
+        self.fridayEvents.append(Event(title: "Open Certamen", startTime: "6:30 PM".toDate(withFormat: "h:mm a"), endTime: "9:00 PM".toDate(withFormat: "h:mm a"), room: "504", type: "ACADEMIC"))
+        self.fridayEvents.append(Event(title: "Ping Pong Tournament", startTime: "6:30 PM".toDate(withFormat: "h:mm a"), endTime: "9:00 PM".toDate(withFormat: "h:mm a"), room: "222", type: "SPORTS"))
+        self.fridayEvents.append(Event(title: "Dodgeball", startTime: "5:30 PM".toDate(withFormat: "h:mm a"), endTime: "7:00 PM".toDate(withFormat: "h:mm a"), room: "Blacktop", type: "ACTIVITY"))
+        self.fridayEvents.append(Event(title: "Dinner", startTime: "7:30 PM".toDate(withFormat: "h:mm a"), endTime: "9:00 PM".toDate(withFormat: "h:mm a"), room: "Crossroads", type: "ACTIVITY"))
+        
+        self.saturdayEvents.append(Event(title: "Chariot Race", startTime: "12:30 PM".toDate(withFormat: "h:mm a"), endTime: "2:00 PM".toDate(withFormat: "h:mm a"), room: "Field", type: "ACTIVITY"))
+        self.saturdayEvents.append(Event(title: "Myth Jenga", startTime: "1:30 PM".toDate(withFormat: "h:mm a"), endTime: "3:00 PM".toDate(withFormat: "h:mm a"), room: "312", type: "ACTIVITY"))
+        self.saturdayEvents.append(Event(title: "Costume Contest", startTime: "1:30 PM".toDate(withFormat: "h:mm a"), endTime: "3:30 PM".toDate(withFormat: "h:mm a"), room: "504", type: "ARTS"))
+        self.saturdayEvents.append(Event(title: "Roman Rap Battle", startTime: "3:30 PM".toDate(withFormat: "h:mm a"), endTime: "5:00 PM".toDate(withFormat: "h:mm a"), room: "504", type: "ACTIVITY"))
+        self.saturdayEvents.append(Event(title: "English Oratory", startTime: "3:30 PM".toDate(withFormat: "h:mm a"), endTime: "5:00 PM".toDate(withFormat: "h:mm a"), room: "321", type: "ACADEMICS"))
+        self.saturdayEvents.append(Event(title: "Escape Room", startTime: "4:30 PM".toDate(withFormat: "h:mm a"), endTime: "6:00 PM".toDate(withFormat: "h:mm a"), room: "Blacktop", type: "ACTIVITY"))
+        self.saturdayEvents.append(Event(title: "Archery", startTime: "3:30 PM".toDate(withFormat: "h:mm a"), endTime: "5:00 PM".toDate(withFormat: "h:mm a"), room: "Crossroads", type: "ACTIVITY"))
         
         self.fridayCells = getCellsFromEvents(events: fridayEvents)
         self.saturdayCells = getCellsFromEvents(events: saturdayEvents)
@@ -153,15 +134,6 @@ class ScheduleViewController: UIViewController {
         return cells
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if isShowingFavorites {
-            favoriteEvents = DataManager.getFavoriteEvents()
-            favoriteCells = getCellsFromEvents(events: favoriteEvents)
-            cells = favoriteCells
-            eventsTable.reloadData()
-        }
-    }
-    
     override func viewDidLayoutSubviews() {
         tableBackground.roundTopTwoCorners()
     }
@@ -196,37 +168,6 @@ class ScheduleViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func toggleShowingFavorites(_ sender: Any) {
-        
-        UIImpactFeedbackGenerator().impactOccurred()
-        
-        eventsTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-        cells = []
-        eventsTable.reloadData()
-        
-        rowsAnimated.removeAll()
-        
-        if isShowingFavorites {
-            changeTitleText(text: "Schedule")
-            toggleFavoritesButton.setImage(UIImage(named: "WhiteHeartEmpty"), for: .normal)
-            cells = eventCells
-        } else {
-            changeTitleText(text: "My Events")
-            toggleFavoritesButton.setImage(UIImage(named: "WhiteHeartFilled"), for: .normal)
-            favoriteEvents = DataManager.getFavoriteEvents()
-            favoriteCells = getCellsFromEvents(events: favoriteEvents)
-            cells = favoriteCells
-        }
-        
-        eventsTable.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.eventsTable.reloadData()
-        }
-        
-        
-        isShowingFavorites = !isShowingFavorites
-    }
 }
 
 // MARK:- TableView Delegate and Data Source
@@ -237,8 +178,6 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
-        
         
         if indexPath.row == cells.count {
             // add bottom padding
@@ -255,12 +194,10 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setup(event: scheduleCell.event, row: indexPath.row)
             return cell
         } else {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "TimeDividerCell", for: indexPath) as! TimeDividerCell
             cell.timeLabel.text = scheduleCell.time
             cell.backgroundColor = .clear
             return cell
-            return UITableViewCell()
         }
     }
     
@@ -269,13 +206,10 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
         if cellSelected.type != .event {
             return
         }
-        if cellSelected.event.description.isEmpty {
-            return
-        }
         UIImpactFeedbackGenerator().impactOccurred()
         self.selectedEvent = cellSelected.event
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "eventInfoSegue", sender: self)
+            self.performSegue(withIdentifier: "ShowEventDetails", sender: self)
         }
     }
     
