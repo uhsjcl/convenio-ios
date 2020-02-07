@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AnimatedGradientView
 
 /// UIView subclass that draws a view with rounded corners, and drop shadow
 class CardView: UIView {
@@ -75,4 +76,63 @@ class PaddingTextField: UITextField {
         self.leftView = paddingView
         self.leftViewMode = .always
     }
+}
+
+
+/// Creates a animated lava-like background on a view
+class LavaBackgroundView: UIView {
+    
+    var gradientView: AnimatedGradientView?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+        startAnimating()
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+        startAnimating()
+    }
+    
+    private func setupView() {
+        let imageView = UIImageView(frame: frame)
+        imageView.image = UIImage(named: "ScavengerHuntBackground")
+        imageView.contentMode = .scaleAspectFill
+        
+        gradientView = AnimatedGradientView(frame: frame)
+        
+        let shadeView = UIView(frame: frame)
+        shadeView.backgroundColor = .black
+        shadeView.alpha = 0.2
+        
+        
+        self.insertSubview(gradientView!, at: 0)
+        self.insertSubview(imageView, at: 1)
+        self.insertSubview(shadeView, at: 2)
+    }
+    
+    public func startAnimating() {
+        var gradients: [AnimatedGradientView.AnimationValue] = []
+        let directions: [AnimatedGradientView.Direction] = [.up,.down,.downRight,.downRight,.upLeft,.upRight,.right,.left]
+        let allColors: [String] = ["#ff0000","#ff7300","#ffb700","#ff0000"]
+        for _ in 0...6 {
+            var colors: [String] = []
+            for _ in 0...1 {
+                colors.append(allColors.randomElement()!)
+            }
+            let direction = directions.randomElement()!
+            let animValue = AnimatedGradientView.AnimationValue(colors: colors, direction, .axial)
+            gradients.append(animValue)
+        }
+        gradientView!.animationValues = gradients
+        gradientView!.animationDuration = 1
+        gradientView!.startAnimating()
+    }
+    
+    public func stopAnimating() {
+        gradientView?.stopAnimating()
+    }
+    
 }

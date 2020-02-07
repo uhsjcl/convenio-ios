@@ -11,33 +11,25 @@ import AnimatedGradientView
 import SideMenuSwift
 
 class HuntMainViewController: UIViewController {
-
+    
+    @IBOutlet var backgroundView: LavaBackgroundView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        startAnimatingBackground()
+        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        backgroundView.stopAnimating()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        backgroundView.startAnimating()
+    }
+    
+    /// Add and begin animating the background
     func startAnimatingBackground() {
-        let gradient = AnimatedGradientView(frame: view.bounds)
-        var gradients: [AnimatedGradientView.AnimationValue] = []
-
-        let directions: [AnimatedGradientView.Direction] = [.up,.down,.downRight,.downRight,.upLeft,.upRight,.right,.left]
-        let allColors: [String] = ["#ff0000","#ff7300","#ffb700","#ff0000"]
-        for _ in 0...6 {
-            var colors: [String] = []
-            for _ in 0...1 {
-                colors.append(allColors.randomElement()!)
-            }
-            let direction = directions.randomElement()!
-            let animValue = AnimatedGradientView.AnimationValue(colors: colors, direction, .axial)
-            gradients.append(animValue)
-        }
-        gradient.animationValues = gradients
-        gradient.animationDuration = 1
-        view.insertSubview(gradient, at: 0)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
     }
     

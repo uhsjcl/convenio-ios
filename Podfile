@@ -12,6 +12,7 @@ target 'Convenio' do
   pod 'Mapbox-iOS-SDK', '~> 5.5'
   pod 'BetterSegmentedControl', '~> 1.3'
   pod "AnimatedGradientView"
+  pod "KRTournamentView"
 
   target 'ConvenioTests' do
     inherit! :search_paths

@@ -9,8 +9,17 @@
 import Foundation
 import UIKit
 
+/// Parent that creates a clear cell background
+class TransparentCell: UITableViewCell {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
+    }
+}
+
 // MARK:- EventCell
-class EventCell: UITableViewCell {
+class EventCell: TransparentCell {
     
     @IBOutlet weak var cardView: CardView!
     @IBOutlet weak var typeLabel: UILabel!
@@ -49,13 +58,13 @@ class EventCell: UITableViewCell {
 }
 
 // MARK:- EventCell
-class TimeDividerCell: UITableViewCell {
+class TimeDividerCell: TransparentCell {
     @IBOutlet weak var timeLabel: UILabel!
     
 }
 
 // MARK:- EventCell
-class FeedEventCell: UITableViewCell {
+class FeedEventCell: TransparentCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -72,7 +81,7 @@ class FeedEventCell: UITableViewCell {
 }
 
 // MARK:- EventCell
-class FeedLongEventCell: UITableViewCell {
+class FeedLongEventCell: TransparentCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!

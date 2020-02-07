@@ -20,6 +20,7 @@
 		5A67435C23DB847F006B6A71 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A67435B23DB847F006B6A71 /* Location.swift */; };
 		5A6E865A23617BDE00A33061 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E865923617BDE00A33061 /* BeaconManager.swift */; };
 		5A6E865C23617D6600A33061 /* BeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E865B23617D6600A33061 /* BeaconViewController.swift */; };
+		5A8F1C4823ECAF9D00FA2342 /* HuntGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8F1C4723ECAF9D00FA2342 /* HuntGameViewController.swift */; };
 		5AAF3C1E235C40D10023A695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF3C1D235C40D10023A695 /* AppDelegate.swift */; };
 		5AAF3C20235C40D10023A695 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAF3C1F235C40D10023A695 /* SceneDelegate.swift */; };
 		5AAF3C25235C40D10023A695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAF3C23235C40D10023A695 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		5A67435B23DB847F006B6A71 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5A6E865923617BDE00A33061 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		5A6E865B23617D6600A33061 /* BeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewController.swift; sourceTree = "<group>"; };
+		5A8F1C4723ECAF9D00FA2342 /* HuntGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuntGameViewController.swift; sourceTree = "<group>"; };
 		5AAF3C1A235C40D10023A695 /* Convenio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Convenio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAF3C1D235C40D10023A695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AAF3C1F235C40D10023A695 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				5A67435923DB50C9006B6A71 /* EventDetailsViewController.swift */,
 				5A6E865B23617D6600A33061 /* BeaconViewController.swift */,
 				5A2AE5DD239F209200CCC822 /* HuntMainViewController.swift */,
+				5A8F1C4723ECAF9D00FA2342 /* HuntGameViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				5A21DB3A235C4A0B0055EA66 /* FeedViewController.swift in Sources */,
 				5A21DB33235C44930055EA66 /* Extensions.swift in Sources */,
 				5A6E865C23617D6600A33061 /* BeaconViewController.swift in Sources */,
+				5A8F1C4823ECAF9D00FA2342 /* HuntGameViewController.swift in Sources */,
 				5AAF3C20235C40D10023A695 /* SceneDelegate.swift in Sources */,
 				5A21DB35235C45040055EA66 /* DataManager.swift in Sources */,
 				5AC0B04323939BAC008466CF /* User.swift in Sources */,

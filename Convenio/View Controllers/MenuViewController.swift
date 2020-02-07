@@ -16,7 +16,10 @@ class Preferences {
 
 class MenuViewController: UIViewController {
     
+    @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet var trailingConstraint: NSLayoutConstraint!
+    
+    var options: [MenuOption] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +33,21 @@ class MenuViewController: UIViewController {
         gradient.frame = self.view.bounds
         self.view.layer.insertSublayer(gradient, at: 0)
         
-        // load up view controllers
-        sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "FeedViewController")
-        }, with: "Feed")
-
-        sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "ScheduleViewController")
-        }, with: "Schedule")
+        // tableview setup
+        menuTableView.isScrollEnabled = false
+        menuTableView.separatorStyle = .none
+        menuTableView.delegate = self
+        menuTableView.dataSource = self
         
-        sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "MapViewController")
-        }, with: "Map")
+        options = SideMenuOptions.options
         
-        sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "HuntMainViewController")
-        }, with: "Hunt")
+        // load up all view controllers
+        for option: MenuOption in options {
+            if option.id.isEmpty { continue }
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: option.id)
+            }, with: option.name)
+        }
         
     }
     
@@ -62,20 +64,60 @@ class MenuViewController: UIViewController {
         sideMenuController?.setContentViewController(with: id, animated: Preferences.shared.enableTransitionAnimation)
         sideMenuController?.hideMenu()
     }
-    
-    @IBAction func scheduleClicked(_ sender: Any) {
-        transitionToViewController(id: "Schedule")
+}
+
+// MARK:- Table View Delegate
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return options.count
     }
     
-    @IBAction func feedClicked(_ sender: Any) {
-        transitionToViewController(id: "Feed")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentOptionName = options[indexPath.row].name
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.text = currentOptionName
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
+        
+        cell.selectionStyle = .none
+        return cell
     }
     
-    @IBAction func mapClicked(_ sender: Any) {
-        transitionToViewController(id: "Map")
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
-    @IBAction func huntClicked(_ sender: Any) {
-        transitionToViewController(id: "Hunt")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+        
+        sideMenuController?.hideMenu(animated: true, completion: nil)
+        self.sideMenuController?.setContentViewController(with: self.options[indexPath.row].name, animated: true)
+    }
+}
+
+// MARK:- Helper Classes
+
+/// The options to show in the menu
+struct SideMenuOptions {
+    public static let options: [MenuOption] = [
+        MenuOption(name: "Feed", id: "FeedViewController"),
+        MenuOption(name: "Schedule", id: "ScheduleViewController"),
+        MenuOption(name: "Map", id: "MapViewController"),
+        MenuOption(name: "Scavenger Hunt", id: "HuntMainViewController")
+    ]
+    
+}
+
+
+/// Represents an option in the menu
+class MenuOption {
+    var name = ""
+    var id = ""
+    
+    init(name: String, id: String) {
+        self.name = name
+        self.id = id
     }
 }
