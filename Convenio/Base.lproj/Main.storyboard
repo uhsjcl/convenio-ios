@@ -473,6 +473,13 @@
                                     <constraint firstAttribute="height" constant="288" id="2Vw-b7-rDj"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2020 Convention Scavenger Hunt" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-l2-dg3">
+                                <rect key="frame" x="35" y="481" width="344" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -496,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNK-9h-gTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="1817"/>
+            <point key="canvasLocation" x="-791.304347826087" y="1816.7410714285713"/>
         </scene>
         <!--Hunt Game View Controller-->
         <scene sceneID="hGf-Tr-gwZ">
@@ -506,7 +513,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5h-Gc-R3d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5h-Gc-R3d">
                                 <rect key="frame" x="20" y="184" width="374" height="238"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="238" id="zQG-Q6-ngo"/>
@@ -516,7 +523,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH2-TU-50N" customClass="PaddingTextField" customModule="Convenio" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH2-TU-50N" customClass="PaddingTextField" customModule="Convenio" customModuleProvider="target">
                                 <rect key="frame" x="60" y="471" width="295" height="63"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -567,9 +574,9 @@
                                 <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPf-lw-MMZ">
-                                <rect key="frame" x="20" y="88" width="374" height="37"/>
+                                <rect key="frame" x="20" y="32" width="374" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="snb-Zf-cem"/>
+                                    <constraint firstAttribute="height" constant="37" id="2IE-lo-S5w"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="S">
@@ -599,8 +606,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="59:04 Elpased" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRU-Bn-H6u">
-                                <rect key="frame" x="117" y="124" width="180" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage Closes in 39:02" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRU-Bn-H6u">
+                                <rect key="frame" x="117" y="87" width="180" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="AOC-zb-hkI"/>
                                 </constraints>
@@ -616,19 +623,18 @@
                             <constraint firstItem="w5h-Gc-R3d" firstAttribute="leading" secondItem="U4W-Q8-zAC" secondAttribute="leading" constant="20" id="6W2-EY-SiU"/>
                             <constraint firstItem="U4W-Q8-zAC" firstAttribute="trailing" secondItem="w5h-Gc-R3d" secondAttribute="trailing" constant="20" id="7UR-su-Wsr"/>
                             <constraint firstItem="U4W-Q8-zAC" firstAttribute="trailing" secondItem="lRU-Bn-H6u" secondAttribute="trailing" constant="117" id="DTj-aV-mMq"/>
-                            <constraint firstItem="YPf-lw-MMZ" firstAttribute="top" secondItem="bIx-C1-agq" secondAttribute="bottom" constant="9" id="HVf-Ob-q5O"/>
+                            <constraint firstItem="YPf-lw-MMZ" firstAttribute="top" secondItem="lB7-IB-Ymp" secondAttribute="top" constant="32" id="H6d-Py-98U"/>
                             <constraint firstItem="U4W-Q8-zAC" firstAttribute="trailing" secondItem="7Oo-rk-IZY" secondAttribute="trailing" constant="65" id="KgW-Yv-P3b"/>
                             <constraint firstItem="U4W-Q8-zAC" firstAttribute="bottom" secondItem="7Oo-rk-IZY" secondAttribute="bottom" constant="87" id="LMf-fI-msc"/>
                             <constraint firstItem="7Oo-rk-IZY" firstAttribute="leading" secondItem="U4W-Q8-zAC" secondAttribute="leading" constant="66" id="LT9-Jl-PNQ"/>
-                            <constraint firstItem="YPf-lw-MMZ" firstAttribute="leading" secondItem="U4W-Q8-zAC" secondAttribute="leading" constant="20" id="RnK-KZ-lbq"/>
+                            <constraint firstItem="YPf-lw-MMZ" firstAttribute="leading" secondItem="U4W-Q8-zAC" secondAttribute="leading" constant="20" id="Q4d-0U-mdc"/>
                             <constraint firstItem="bIx-C1-agq" firstAttribute="leading" secondItem="lB7-IB-Ymp" secondAttribute="leading" id="afH-2p-h7d"/>
-                            <constraint firstItem="lRU-Bn-H6u" firstAttribute="top" secondItem="bIx-C1-agq" secondAttribute="bottom" constant="45" id="b4L-mg-w4O"/>
+                            <constraint firstItem="lRU-Bn-H6u" firstAttribute="top" secondItem="bIx-C1-agq" secondAttribute="bottom" constant="8" id="b4L-mg-w4O"/>
                             <constraint firstItem="JH2-TU-50N" firstAttribute="top" secondItem="w5h-Gc-R3d" secondAttribute="bottom" constant="49" id="cxd-NX-1eJ"/>
                             <constraint firstItem="lRU-Bn-H6u" firstAttribute="leading" secondItem="U4W-Q8-zAC" secondAttribute="leading" constant="117" id="hT1-Bb-yys"/>
                             <constraint firstItem="JH2-TU-50N" firstAttribute="leading" secondItem="U4W-Q8-zAC" secondAttribute="leading" constant="60" id="hvK-9L-6zM"/>
-                            <constraint firstItem="U4W-Q8-zAC" firstAttribute="trailing" secondItem="YPf-lw-MMZ" secondAttribute="trailing" constant="20" id="k8R-7N-62K"/>
-                            <constraint firstItem="w5h-Gc-R3d" firstAttribute="top" secondItem="YPf-lw-MMZ" secondAttribute="bottom" constant="59" id="mpp-Hd-510"/>
                             <constraint firstAttribute="trailing" secondItem="bIx-C1-agq" secondAttribute="trailing" id="tmQ-iU-9RA"/>
+                            <constraint firstItem="U4W-Q8-zAC" firstAttribute="trailing" secondItem="YPf-lw-MMZ" secondAttribute="trailing" constant="20" id="wYm-bW-A0G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U4W-Q8-zAC"/>
                     </view>
